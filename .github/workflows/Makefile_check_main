@@ -1,0 +1,40 @@
+SRCDIR=fileioapp/src/main/java/ch/heig/dai/lab/fileio/
+JAR=fileioapp/target/fileioapp-1.0.jar
+JOKES=jokes
+WORDSPERLINE=3
+TESTFILES=f.utf8 f.utf16le f.utf16be
+TESTSTRING="Ceci est un test avec mots: l'élève aime le smiley 😂😂😂😂 et chinois 编程"
+CHECKFILE=expected
+CHECKSTRING="1. Ceci Est Un\n2. Test Avec Mots:\n3. L'élève Aime Le\n4. Smiley 😂😂😂😂 Et\n5. Chinois 编程"
+
+
+.PHONY: clean test check
+
+all: clean check
+
+$(JOKES):
+	@mkdir ./jokes
+
+$(TESTFILES):
+	@echo $(TESTSTRING) | iconv -f UTF-8 -t UTF-8 - > $(JOKES)/f.utf8
+	@echo $(TESTSTRING) | iconv -f UTF-8 -t UTF-16LE - > $(JOKES)/f.utf16le
+	@echo $(TESTSTRING) | iconv -f UTF-8 -t UTF-16BE - > $(JOKES)/f.utf16be
+
+$(CHECKFILE):
+	@echo $(CHECKSTRING) | iconv -f UTF-8 -t UTF-8 - > $(JOKES)/$(CHECKFILE)
+
+$(JAR): $(SRCDIR)/Main.java
+	cd fileioapp && mvn package
+
+run: $(JAR) $(JOKES) $(TESTFILES)
+	timeout 5 java -jar $(JAR) $(JOKES) $(WORDSPERLINE) || true
+
+check: run $(CHECKFILE) $(TESTFILES)
+	@for f in $(TESTFILES); do \
+		echo "Checking file $$f"; \
+		cmp $(JOKES)/$$f.processed $(JOKES)/$(CHECKFILE) || exit 1; \
+	done
+
+clean:
+	rm -rf $(JOKES)
+
