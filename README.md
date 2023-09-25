@@ -245,11 +245,11 @@ Develop the main class
 
 Once the components are finished and the unit tests are passing, you can develop the main class.
 
-The main class takes a folder name as command line argument. The folder contains the files to transform. To create this folder, unzip the file `chucknorris.zip` file anywhere on your computer, but not in the repository folder.
+The main class takes a folder name as command line argument. The folder contains the files to transform. To create this folder, unzip the file `jokes.zip` file anywhere on your computer, but not in the repository folder.
 
 Then follow the pull request workflow again, i.e. create a feature branch before starting to work on the main class.
 
-To test the main class, compile it with maven and run it with `java -jar target/fileioapp-1.0.jar <folder_name>`.
+To test the main class, compile it with maven and run it with `java -jar target/fileioapp-1.0.jar <folder_name> <words_per_line>`.
 
 When you are finished, add, commit and push your changes to your repository.
 
