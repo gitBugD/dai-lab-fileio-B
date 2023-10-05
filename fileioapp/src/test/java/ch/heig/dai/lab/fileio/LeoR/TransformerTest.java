@@ -1,5 +1,5 @@
-// TODO change this to your own package instead of jehrensb ***
-package emilieh;
+// TODO change this to your own package instead of LeoR ***
+package ch.heig.dai.lab.fileio.LeoR;
 
 import ch.heig.dai.lab.fileio.jehrensb.Transformer;
 import org.junit.jupiter.api.Disabled;
