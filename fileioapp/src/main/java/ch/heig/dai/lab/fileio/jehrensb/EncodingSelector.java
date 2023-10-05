@@ -1,4 +1,4 @@
-package ch.heig.dai.lab.fileio.simeline;
+package ch.heig.dai.lab.fileio.jehrensb;
 
 import java.io.File;
 import java.nio.charset.Charset;

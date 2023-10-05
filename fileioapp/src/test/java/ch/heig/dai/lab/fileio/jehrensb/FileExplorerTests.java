@@ -1,5 +1,6 @@
 // TODO change this to your own package instead of jehrensb ***
-package ch.heig.dai.lab.fileio.simeline;
+package ch.heig.dai.lab.fileio.jehrensb;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Disabled;
 import static org.junit.jupiter.api.Assertions.assertEquals;
