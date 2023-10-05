@@ -37,9 +37,15 @@ public class Transformer {
 
         for (String w: words) {
             String firstLetter = w.substring(0,1);
-            String lastLetters = w.substring(1);
+            capitalizedSource.append(firstLetter.toUpperCase());
 
-            capitalizedSource.append(firstLetter.toUpperCase()).append(lastLetters).append(" ");
+            if (w.length() == 1) {
+                capitalizedSource.append(" ");
+                continue;
+            }
+
+            String lastLetters = w.substring(1);
+            capitalizedSource.append(lastLetters).append(" ");
         }
 
         return capitalizedSource.toString().trim();
@@ -60,23 +66,20 @@ public class Transformer {
 
         for (String w: words) {
             if (wordCounter == 0) {
-                wrappedSource.append(lineCounter).append(". ");
+                wrappedSource.append(lineCounter).append(".");
             }
 
             ++wordCounter;
-            wrappedSource.append(w).append(" ");
+            wrappedSource.append(" ").append(w);
 
             if (wordCounter == numWordsPerLine) {
-                wrappedSource = new StringBuilder(wrappedSource.toString().trim());
                 wrappedSource.append("\n");
                 wordCounter = 0;
                 ++lineCounter;
             }
         }
 
-        wrappedSource = new StringBuilder(wrappedSource.toString().trim());
         wrappedSource.append("\n");
-
         return wrappedSource.toString();
     }
 }   
