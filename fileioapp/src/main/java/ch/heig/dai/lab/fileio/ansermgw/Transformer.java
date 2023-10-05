@@ -1,13 +1,13 @@
 package ch.heig.dai.lab.fileio.ansermgw;
 
 public class Transformer {
-
+    private static final char LINE_SEPARATOR = '\n';
     private final String newName;
     private final int numWordsPerLine;
 
     /**
      * Constructor
-     * Initialize the Transformer with the name to replace "Chuck Norris" with 
+     * Initialize the Transformer with the name to replace "Chuck Norris" with
      * and the number of words per line to use when wrapping the text.
      * @param newName the name to replace "Chuck Norris" with
      * @param numWordsPerLine the number of words per line to use when wrapping the text
@@ -18,7 +18,7 @@ public class Transformer {
     }
 
     /**
-     * Split a string at each white space to generate an array of word
+     * Split a string at each with space to generate an array of word
      * @param source the string to be split
      * @return an array of word extracted from the source
      */
@@ -49,7 +49,12 @@ public class Transformer {
             }
 
             // uppercase first letter
-            builder.append(word.substring(0, 1).toUpperCase()).append(word.substring(1));
+            builder.append(word.substring(0, 1).toUpperCase());
+
+            if(word.length() > 1) {
+                // add the rest of the word
+                builder.append(word.substring(1));
+            }
         }
 
 
@@ -74,7 +79,7 @@ public class Transformer {
             if(isNewLine) {
                 // add line return except when it's the first line
                 if(lineNumber != 1) {
-                    builder.append(System.lineSeparator());
+                    builder.append(LINE_SEPARATOR);
                 }
 
                 // add line number at start of line
@@ -89,7 +94,7 @@ public class Transformer {
         }
 
         if(!builder.isEmpty()) {
-            builder.append(System.lineSeparator());
+            builder.append(LINE_SEPARATOR);
         }
 
         return builder.toString();
