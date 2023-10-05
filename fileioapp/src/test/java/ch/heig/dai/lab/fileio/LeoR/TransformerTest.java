@@ -1,8 +1,10 @@
 // TODO change this to your own package instead of LeoR ***
-package ch.heig.dai.lab.fileio.jehrensb;
+package ch.heig.dai.lab.fileio.LeoR;
 
-import org.junit.jupiter.api.Test;
+import ch.heig.dai.lab.fileio.jehrensb.Transformer;
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TransformerTest {

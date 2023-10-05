@@ -1,12 +1,15 @@
 // TODO change this to your own package instead of LeoR ***
-package ch.heig.dai.lab.fileio.jehrensb;
+package ch.heig.dai.lab.fileio.LeoR;
 
-import org.junit.jupiter.api.Test;
+import ch.heig.dai.lab.fileio.jehrensb.FileExplorer;
 import org.junit.jupiter.api.Disabled;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Set;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FileExplorerTests {
 
