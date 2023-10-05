@@ -2,7 +2,6 @@ package ch.heig.dai.lab.fileio.balkghar;
 
 import java.io.File;
 import java.nio.charset.Charset;
-import java.util.HashSet;
 
 public class EncodingSelector {
 
