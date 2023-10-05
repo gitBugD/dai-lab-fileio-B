@@ -41,9 +41,9 @@ public class FileReaderWriter {
      */
     public boolean writeFile(File file, String content, Charset encoding) {
         try {
-            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(
-                    new FileOutputStream(file), encoding
-            ));
+            BufferedWriter out = new BufferedWriter(
+                    new OutputStreamWriter(new FileOutputStream(file), encoding)
+            );
 
             out.write(content);
             out.close();
