@@ -1,4 +1,4 @@
-// TODO change this to your own package instead of LeoR ***
+// TODO change this to your own package instead of jehrensb ***
 package ch.heig.dai.lab.fileio.jehrensb;
 
 import org.junit.jupiter.api.Test;
