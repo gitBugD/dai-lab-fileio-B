@@ -2,6 +2,7 @@ package ch.heig.dai.lab.fileio.mystere;
 
 import java.io.File;
 import java.util.HashSet;
+import java.util.stream.Stream;
 
 public class FileExplorer {
     private final File folder;
@@ -27,7 +28,9 @@ public class FileExplorer {
      * @return a new file, or null if there is no new file
      */
     public File getNewFile() {
-        // TODO: implement the method body here
-        return null;
+        return Stream.of(folder.listFiles())
+                .filter(file -> !knownFiles.contains(file))
+                .peek(file -> knownFiles.add(file))
+                .findFirst().orElse(null);
     }
 }
