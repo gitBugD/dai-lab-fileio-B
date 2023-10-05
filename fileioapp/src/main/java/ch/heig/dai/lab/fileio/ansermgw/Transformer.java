@@ -18,13 +18,21 @@ public class Transformer {
     }
 
     /**
+     * Split a string at each white space to generate an array of word
+     * @param source the string to be split
+     * @return an array of word extracted from the source
+     */
+    private String[] splitBySpace(String source) {
+        return source.split("\\s");
+    }
+
+    /**
      * Replace all occurrences of "Chuck Norris" with the name given in the constructor.
      * @param source the string to transform
      * @return the transformed string
      */
     public String replaceChuck(String source) {
-        // TODO: Implement the method body here.
-        return "";
+        return source.replace("Chuck Norris", newName);
     }
 
     /**
@@ -33,8 +41,19 @@ public class Transformer {
      * @return the transformed string
      */
     public String capitalizeWords(String source) {
-        // TODO: Implement the method body here.
-        return "";
+        StringBuilder builder = new StringBuilder();
+
+        for(String word : splitBySpace(source)) {
+            if(!builder.isEmpty()) {
+                builder.append(' ');
+            }
+
+            // uppercase first letter
+            builder.append(word.substring(0, 1).toUpperCase()).append(word.substring(1));
+        }
+
+
+        return builder.toString();
     }
 
     /**
@@ -44,8 +63,35 @@ public class Transformer {
      * @return the transformed string
      */
     public String wrapAndNumberLines(String source) {
-        // TODO: Implement the method body here.
-        // Use the StringBuilder class to build the result string.
-        return "";
+        StringBuilder builder = new StringBuilder();
+        int wordCount = 0;
+
+        for(String word : splitBySpace(source)) {
+            // line count start at 1, this is why we do +1
+            int lineNumber = wordCount / numWordsPerLine + 1;
+            boolean isNewLine = wordCount % numWordsPerLine == 0;
+
+            if(isNewLine) {
+                // add line return except when it's the first line
+                if(lineNumber != 1) {
+                    builder.append(System.lineSeparator());
+                }
+
+                // add line number at start of line
+                builder.append(lineNumber).append(". ");
+            } else {
+                // add space between word
+                builder.append(' ');
+            }
+
+            builder.append(word);
+            ++wordCount;
+        }
+
+        if(!builder.isEmpty()) {
+            builder.append(System.lineSeparator());
+        }
+
+        return builder.toString();
     }
 }   
