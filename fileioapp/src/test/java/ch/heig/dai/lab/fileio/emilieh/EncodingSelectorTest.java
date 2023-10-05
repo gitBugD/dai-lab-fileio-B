@@ -1,5 +1,5 @@
 // TODO change this to your own package instead of jehrensb ***
-package emilieh;
+package ch.heig.dai.lab.fileio.emilieh;
 
 import ch.heig.dai.lab.fileio.jehrensb.EncodingSelector;
 import org.junit.jupiter.api.Disabled;
