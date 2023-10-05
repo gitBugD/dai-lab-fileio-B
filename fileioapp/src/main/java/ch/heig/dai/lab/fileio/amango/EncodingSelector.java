@@ -3,8 +3,18 @@ package ch.heig.dai.lab.fileio.amango;
 import java.io.File;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.Map;
 
 public class EncodingSelector {
+    /**
+     * Store the supported encodings and their corresponding Charset object.
+     */
+    private static final Map<String, Charset> extMap = Map.of(
+            ".utf8", StandardCharsets.UTF_8,
+            ".txt", StandardCharsets.US_ASCII,
+            ".utf16be", StandardCharsets.UTF_16BE,
+            ".utf16le", StandardCharsets.UTF_16LE
+    );
 
     /**
      * Get the encoding of a file based on its extension.
@@ -24,12 +34,8 @@ public class EncodingSelector {
         if (extIndex < 0)
             return null;
 
-        return switch (fileName.substring(extIndex)) {
-            case ".utf8" -> StandardCharsets.UTF_8;
-            case ".txt" -> StandardCharsets.US_ASCII;
-            case ".utf16be" -> StandardCharsets.UTF_16BE;
-            case ".utf16le" -> StandardCharsets.UTF_16LE;
-            default -> null;
-        };
+        String ext = fileName.substring(extIndex);
+        
+        return extMap.getOrDefault(ext, null);
     }
 }
