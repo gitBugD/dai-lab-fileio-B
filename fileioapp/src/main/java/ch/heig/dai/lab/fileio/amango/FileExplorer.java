@@ -2,7 +2,6 @@ package ch.heig.dai.lab.fileio.amango;
 
 import java.io.File;
 import java.util.HashSet;
-import java.util.Objects;
 
 public class FileExplorer {
     private final File folder;
