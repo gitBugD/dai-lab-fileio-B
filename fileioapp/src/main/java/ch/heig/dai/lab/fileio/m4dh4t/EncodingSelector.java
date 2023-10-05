@@ -3,6 +3,7 @@ package ch.heig.dai.lab.fileio.m4dh4t;
 import java.io.File;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 
 public class EncodingSelector {
 
@@ -23,16 +24,21 @@ public class EncodingSelector {
         }
 
         String fileName = file.getName();
-        if (fileName.endsWith(".utf8")) {
-            return StandardCharsets.UTF_8;
-        } else if (fileName.endsWith(".txt")) {
-            return StandardCharsets.US_ASCII;
-        } else if (fileName.endsWith(".utf16be")) {
-            return StandardCharsets.UTF_16BE;
-        } else if (fileName.endsWith(".utf16le")) {
-            return StandardCharsets.UTF_16LE;
-        } else {
+        // Use a hashmap
+        HashMap<String, Charset> map = new HashMap<>();
+        map.put(".utf8", StandardCharsets.UTF_8);
+        map.put(".txt", StandardCharsets.US_ASCII);
+        map.put(".utf16be", StandardCharsets.UTF_16BE);
+        map.put(".utf16le", StandardCharsets.UTF_16LE);
+
+        // Search if file possess an extension
+        int index = fileName.lastIndexOf('.');
+        if (index == -1) {
             return null;
         }
+
+        // Get the extension
+        String extension = fileName.substring(index);
+        return map.get(extension);
     }
 }
