@@ -1,4 +1,4 @@
-package ch.heig.dai.lab.fileio.tomas-pavoni;
+package ch.heig.dai.lab.fileio.tomaspavoni;
 
 import java.io.File;
 import java.nio.charset.Charset;
