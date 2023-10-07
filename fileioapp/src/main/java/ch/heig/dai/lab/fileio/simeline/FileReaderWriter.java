@@ -2,6 +2,7 @@ package ch.heig.dai.lab.fileio.simeline;
 
 import java.io.*;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 public class FileReaderWriter {
 
@@ -43,9 +44,18 @@ public class FileReaderWriter {
      * @return true if the file was written successfully, false otherwise
      */
     public boolean writeFile(File file, String content, Charset encoding) {
-        // TODO: Implement the method body here. 
+        // TODO: Implement the method body here.
         // Use the ...Stream and ...Reader classes from the java.io package.
         // Make sure to flush the data and close the streams and readers at the end.
-        return false;
+        try {
+            var writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream (file), encoding));
+            writer.write(content);
+            writer.flush();
+            writer.close();
+            return true;
+        }
+        catch (Exception e) {
+            return false;
+        }
     }
 }
