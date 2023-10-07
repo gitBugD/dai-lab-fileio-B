@@ -1,4 +1,4 @@
-package ch.heig.dai.lab.fileio.amango;
+package ch.heig.dai.lab.fileio.dariovas;
 
 import java.io.File;
 import java.util.HashSet;
@@ -25,18 +25,7 @@ public class FileExplorer {
      * @return a new file, or null if there is no new file
      */
     public File getNewFile() {
-        File[] files = folder.listFiles();
-
-        if(files == null)
-            return null;
-
-        for (var file : files) {
-            if (!knownFiles.contains(file)) {
-                knownFiles.add(file);
-                return file;
-            }
-        }
-
+        // TODO: implement the method body here
         return null;
     }
 }

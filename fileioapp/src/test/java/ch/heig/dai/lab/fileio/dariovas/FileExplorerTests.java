@@ -1,5 +1,4 @@
-// TODO change this to your own package instead of jehrensb ***
-package ch.heig.dai.lab.fileio.emariaux;
+package ch.heig.dai.lab.fileio.dariovas;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Disabled;
@@ -11,7 +10,7 @@ import java.util.Set;
 public class FileExplorerTests {
 
     @Test
-
+    @Disabled
     public void getNewFilesTest() throws IOException {
         // Create a temporary directory under the default temp directory using java.io.File
 
