@@ -5,7 +5,7 @@ import java.util.HashSet;
 
 public class FileExplorer {
     private final File folder;
-    private HashSet<File> knownFiles;
+    private final HashSet<File> knownFiles;
 
     /**
      * Constructor
@@ -14,7 +14,7 @@ public class FileExplorer {
      */
     public FileExplorer(String folder) {
         this.folder = new File(folder);
-        this.knownFiles = new HashSet<File>();
+        this.knownFiles = new HashSet<>();
     }
 
     /**

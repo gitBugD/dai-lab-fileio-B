@@ -1,4 +1,4 @@
-// TODO change this to your own package instead of LeoR ***
+// TODO change this to your own package instead of jehrensb ***
 package ch.heig.dai.lab.fileio.LeoR;
 
 import ch.heig.dai.lab.fileio.LeoR.FileExplorer;
