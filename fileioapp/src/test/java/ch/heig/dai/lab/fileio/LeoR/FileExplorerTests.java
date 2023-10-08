@@ -1,7 +1,7 @@
 // TODO change this to your own package instead of LeoR ***
 package ch.heig.dai.lab.fileio.LeoR;
 
-import ch.heig.dai.lab.fileio.jehrensb.FileExplorer;
+import ch.heig.dai.lab.fileio.LeoR.FileExplorer;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
