@@ -1,8 +1,6 @@
 // TODO change this to your own package instead of jehrensb ***
 package ch.heig.dai.lab.fileio.emilieh;
 
-import ch.heig.dai.lab.fileio.emilieh.EncodingSelector;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
