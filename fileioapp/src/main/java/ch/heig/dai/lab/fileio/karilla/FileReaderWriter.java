@@ -16,14 +16,14 @@ public class FileReaderWriter {
         // Use the ...Stream and ...Reader classes from the java.io package.
         // Make sure to close the streams and readers at the end.
 
-        String data = "";
+        StringBuilder data = new StringBuilder();
         String line;
         try(    InputStream in = new FileInputStream(file);
                 Reader stream = new InputStreamReader(in, encoding);
                 BufferedReader reader = new BufferedReader(stream)){
 
                 while((line = reader.readLine()) != null){
-                    data = data.concat(line);
+                    data.append(line).append("\n");
                 }
                 reader.close();
                 stream.close();
@@ -32,7 +32,7 @@ public class FileReaderWriter {
         catch (Exception e){
             return null;
         }
-        return data;
+        return data.toString();
     }
 
     /**
@@ -51,18 +51,16 @@ public class FileReaderWriter {
             Writer stream = new OutputStreamWriter(out, encoding);
             BufferedWriter writer = new BufferedWriter(stream)){
 
-            while((line = reader.readLine()) != null){
-                data = data.concat(line);
-            }
+            writer.write(content);
             writer.close();
             stream.close();
             out.close();
         }
         catch (Exception e){
-            return null;
+            return false;
         }
 
 
-        return false;
+        return true;
     }
 }
