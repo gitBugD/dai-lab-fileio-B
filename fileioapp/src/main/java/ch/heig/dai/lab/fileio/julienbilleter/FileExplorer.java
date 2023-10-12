@@ -26,19 +26,12 @@ public class FileExplorer {
      */
     public File getNewFile() {
         File[] files = folder.listFiles();
-        var nfiles = files.length;
-
-        for (File file : files) {
-            boolean inFolder = false;
-            for (File knownFile : knownFiles) {
-                if (file.getName().equals(knownFile.getName())) {
-                    inFolder = true;
-                    break;
+        if (files != null) {
+            for (File file : files) {
+                if (!knownFiles.contains(file)) {
+                    knownFiles.add(file);
+                    return file;
                 }
-            }
-            if (!inFolder) {
-                knownFiles.add(file);
-                return file;
             }
         }
         return null;
