@@ -1,7 +1,7 @@
-// TODO change this to your own package instead of jehrensb ***
+// TODO change this to your own package instead of fabricechapuis ***
 package ch.heig.dai.lab.fileio.fabricechapuis;
 
-import ch.heig.dai.lab.fileio.jehrensb.EncodingSelector;
+import ch.heig.dai.lab.fileio.fabricechapuis.EncodingSelector;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class EncodingSelectorTest {
 
-    private final ch.heig.dai.lab.fileio.jehrensb.EncodingSelector selector = new EncodingSelector();
+    private final ch.heig.dai.lab.fileio.fabricechapuis.EncodingSelector selector = new EncodingSelector();
 
     @Test
     @Disabled
