@@ -40,7 +40,6 @@ public class FileReaderWriter {
      * @return true if the file was written successfully, false otherwise
      */
     public boolean writeFile(File file, String content, Charset encoding) {
-        // TODO: Implement the method body here.
         try{
             var writer = new BufferedWriter(
                     new OutputStreamWriter(new FileOutputStream(file), encoding));
