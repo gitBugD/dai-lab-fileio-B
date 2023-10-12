@@ -1,4 +1,4 @@
-package ch.heig.dai.lab.fileio.spiritclaw;
+package ch.heig.dai.lab.fileio.Patrick2ooo;
 
 import java.io.File;
 import java.util.HashSet;
@@ -25,17 +25,7 @@ public class FileExplorer {
      * @return a new file, or null if there is no new file
      */
     public File getNewFile() {
-        if (folder.listFiles() == null){
-            return null;
-        }
-
-        for(File file : folder.listFiles()){
-            if(!knownFiles.contains(file)){
-                knownFiles.add(file);
-                return file;
-            }
-        }
-
+        // TODO: implement the method body here
         return null;
     }
 }
