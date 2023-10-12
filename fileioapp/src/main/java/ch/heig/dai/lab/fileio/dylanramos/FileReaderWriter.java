@@ -12,7 +12,7 @@ public class FileReaderWriter {
      * @return the content of the file as a String, or null if an error occurred.
      */
     public String readFile(File file, Charset encoding) {
-        try(var is = new BufferedReader(new InputStreamReader(new FileInputStream(file.getName()), encoding))){
+        try(var is = new BufferedReader(new InputStreamReader(new FileInputStream(file), encoding))){
             var content = new StringBuilder();
             String line;
 
