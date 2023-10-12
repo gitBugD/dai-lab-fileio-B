@@ -7,6 +7,18 @@ import java.util.HashMap;
 
 public class EncodingSelector {
 
+    private final HashMap<String, Charset> supportedEncode = new HashMap<>();
+
+    /**
+     * Constructor with the supported encoding
+     */
+    public EncodingSelector(){
+            supportedEncode.put(".utf8", StandardCharsets.UTF_8);
+            supportedEncode.put(".txt", StandardCharsets.US_ASCII);
+            supportedEncode.put(".utf16be", StandardCharsets.UTF_16BE);
+            supportedEncode.put(".utf16le", StandardCharsets.UTF_16LE);
+        }
+
     /**
      * Get the encoding of a file based on its extension.
      * The following extensions are recognized:
@@ -19,14 +31,7 @@ public class EncodingSelector {
      * @return the encoding of the file, or null if the extension is not recognized
      */
     public Charset getEncoding(File file) {
-        String[] supportedExtension = {".utf8", ".txt", ".utf16be", ".utf16le"};
-        Charset[] supportedEncoding = {StandardCharsets.UTF_8, StandardCharsets.US_ASCII,
-                StandardCharsets.UTF_16BE, StandardCharsets.UTF_16LE};
-        HashMap<String, Charset> supportedEncode = new HashMap<>();
-        supportedEncode.put(".utf8", StandardCharsets.UTF_8);
-        supportedEncode.put(".txt", StandardCharsets.US_ASCII);
-        supportedEncode.put(".utf16be", StandardCharsets.UTF_16BE);
-        supportedEncode.put(".utf16le", StandardCharsets.UTF_16LE);
+
 
         String filename = file.getName();
         int indexOfPoint = filename.lastIndexOf(".");
