@@ -17,7 +17,7 @@ public class FileReaderWriter {
         String stringToReturn = "";
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file.getAbsolutePath()), encoding))) {
             while(reader.ready()) {
-                stringToReturn += reader.readLine();
+                stringToReturn += reader.readLine() + "\n";
             }
             reader.close();
         }catch (Exception e) {
