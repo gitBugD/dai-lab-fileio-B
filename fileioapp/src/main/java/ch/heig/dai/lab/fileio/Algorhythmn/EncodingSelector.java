@@ -2,6 +2,7 @@ package ch.heig.dai.lab.fileio.Algorhythmn;
 
 import java.io.File;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 public class EncodingSelector {
 
@@ -17,7 +18,18 @@ public class EncodingSelector {
      * @return the encoding of the file, or null if the extension is not recognized
      */
     public Charset getEncoding(File file) {
-        // TODO: implement the method body here
+        String[] supportedExtension = {".utf8", ".txt", ".utf16be", ".utf16le"};
+        Charset[] supportedEncoding = {StandardCharsets.UTF_8, StandardCharsets.US_ASCII,
+                StandardCharsets.UTF_16BE, StandardCharsets.UTF_16LE};
+        String filename = file.getName();
+        int indexOfPoint = filename.lastIndexOf(".");
+        for (int i = 0; i < supportedExtension.length && indexOfPoint != -1; i++) {
+            String extension = filename.substring(indexOfPoint);
+            if (extension.contains(supportedExtension[i])) {
+                return supportedEncoding[i];
+            }
+        }
         return null;
     }
 }
+
