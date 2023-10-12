@@ -1,15 +1,12 @@
 // TODO change this to your own package instead of jehrensb ***
-package emilieh;
+package ch.heig.dai.lab.fileio.EnJiBe;
 
-import ch.heig.dai.lab.fileio.jehrensb.FileExplorer;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
+import org.junit.jupiter.api.Disabled;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.io.File;
 import java.io.IOException;
 import java.util.Set;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FileExplorerTests {
 
