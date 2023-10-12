@@ -20,8 +20,6 @@ public class FileReaderWriter {
                 content.append(line).append("\n");
             }
 
-            is.close();
-
             return content.toString();
         } catch (IOException e) {
             return null;
@@ -38,7 +36,6 @@ public class FileReaderWriter {
     public boolean writeFile(File file, String content, Charset encoding) {
         try(var os = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), encoding))){
             os.write(content);
-            os.close();
 
             return true;
         } catch (IOException e) {
