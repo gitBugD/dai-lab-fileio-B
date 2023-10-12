@@ -1,18 +1,16 @@
-package ch.heig.dai.lab.fileio.spiritclaw;
+package ch.heig.dai.lab.fileio.Algorhythmn;
 
-import ch.heig.dai.lab.fileio.spiritclaw.FileExplorer;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
+import org.junit.jupiter.api.Disabled;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.io.File;
 import java.io.IOException;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 public class FileExplorerTests {
 
     @Test
+    @Disabled
     public void getNewFilesTest() throws IOException {
         // Create a temporary directory under the default temp directory using java.io.File
 

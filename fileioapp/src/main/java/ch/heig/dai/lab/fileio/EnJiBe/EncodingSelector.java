@@ -1,8 +1,7 @@
-package ch.heig.dai.lab.fileio.Calum_Quinn;
+package ch.heig.dai.lab.fileio.EnJiBe;
 
 import java.io.File;
 import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 
 public class EncodingSelector {
 
@@ -19,19 +18,6 @@ public class EncodingSelector {
      */
     public Charset getEncoding(File file) {
         // TODO: implement the method body here
-
-        String fileName = file.toString();
-
-        int dotIndex = fileName.lastIndexOf(".") + 1;
-
-        String extension = fileName.substring(dotIndex);
-
-        switch (extension) {
-            case "utf8" : return StandardCharsets.UTF_8;
-            case "txt" : return StandardCharsets.US_ASCII;
-            case "utf16be" : return StandardCharsets.UTF_16BE;
-            case "utf16le" : return StandardCharsets.UTF_16LE;
-            default : return null;
-        }
+        return null;
     }
 }
