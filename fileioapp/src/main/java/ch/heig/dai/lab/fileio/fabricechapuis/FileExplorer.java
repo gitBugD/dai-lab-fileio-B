@@ -30,7 +30,7 @@ public class FileExplorer {
         if (potential_files != null) {
             for (File file : potential_files) {
                 if (!this.knownFiles.contains(file)) {
-                    knownFiles.add(file);
+                    this.knownFiles.add(file);
                     return file;
                 }
             }
