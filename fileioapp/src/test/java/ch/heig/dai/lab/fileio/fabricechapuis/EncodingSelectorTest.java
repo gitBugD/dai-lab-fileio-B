@@ -1,4 +1,3 @@
-// TODO change this to your own package instead of fabricechapuis ***
 package ch.heig.dai.lab.fileio.fabricechapuis;
 
 import ch.heig.dai.lab.fileio.fabricechapuis.EncodingSelector;
