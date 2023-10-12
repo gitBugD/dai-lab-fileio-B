@@ -17,8 +17,8 @@ public class EncodingSelector {
      * @param file the file to get the encoding from
      * @return the encoding of the file, or null if the extension is not recognized
      */
-    public Charset getEncod
-
+    public Charset getEncoding(File file)
+    {
         String fileName = file.getName();
         String extension = "";
 
