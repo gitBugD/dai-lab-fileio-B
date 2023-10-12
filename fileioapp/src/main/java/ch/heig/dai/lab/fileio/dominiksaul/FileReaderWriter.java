@@ -1,14 +1,8 @@
 package ch.heig.dai.lab.fileio.dominiksaul;
 
-import java.io.File;
+import java.io.*;
 import java.nio.charset.Charset;
-import java.io.IOException;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.util.stream.Collectors;
 
 public class FileReaderWriter {
 
@@ -19,20 +13,19 @@ public class FileReaderWriter {
      * @param encoding
      * @return the content of the file as a String, or null if an error occurred.
      */
-    public String readFile(File file, Charset encoding) throws IOException {
+    public String readFile(File file, Charset encoding) {
         // TODO: Implement the method body here. 
         // Use the ...Stream and ...Reader classes from the java.io package.
         // Make sure to close the streams and readers at the end.
-
-        var reader = new BufferedReader(
+        try (var reader = new BufferedReader(
                 new InputStreamReader(
-                        new FileInputStream(file), encoding));
-
-        String text = reader.readLine();
-
-        reader.close();
-
-        return text;
+                        new FileInputStream(file), encoding))) {
+            String text = reader.lines().collect(Collectors.joining("\n"));
+            reader.close();
+            return text;
+        } catch (IOException e) {
+            return null;
+        }
     }
 
     /**
@@ -43,20 +36,19 @@ public class FileReaderWriter {
      * @param encoding the encoding to use
      * @return true if the file was written successfully, false otherwise
      */
-    public boolean writeFile(File file, String content, Charset encoding) throws IOException {
+    public boolean writeFile(File file, String content, Charset encoding) {
         // TODO: Implement the method body here. 
         // Use the ...Stream and ...Reader classes from the java.io package.
         // Make sure to flush the data and close the streams and readers at the end.
-
-        var writer = new BufferedWriter(
+        try(var writer = new BufferedWriter(
                 new OutputStreamWriter(
-                        new FileOutputStream(file), encoding));
-
-        writer.write(content);
-
-        writer.flush();
-        writer.close();
-
-        return false;
+                        new FileOutputStream(file), encoding))) {
+            writer.write(content);
+            writer.flush();
+            writer.close();
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
     }
 }
