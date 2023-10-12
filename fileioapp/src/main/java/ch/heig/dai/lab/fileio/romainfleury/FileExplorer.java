@@ -26,6 +26,7 @@ public class FileExplorer {
      */
     public File getNewFile() {
         // TODO: implement the method body here
+        File[] files  = folder.listFiles();
         return null;
     }
 }
