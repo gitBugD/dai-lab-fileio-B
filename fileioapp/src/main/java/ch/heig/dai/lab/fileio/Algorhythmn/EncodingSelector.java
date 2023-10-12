@@ -3,6 +3,7 @@ package ch.heig.dai.lab.fileio.Algorhythmn;
 import java.io.File;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 
 public class EncodingSelector {
 
@@ -21,13 +22,18 @@ public class EncodingSelector {
         String[] supportedExtension = {".utf8", ".txt", ".utf16be", ".utf16le"};
         Charset[] supportedEncoding = {StandardCharsets.UTF_8, StandardCharsets.US_ASCII,
                 StandardCharsets.UTF_16BE, StandardCharsets.UTF_16LE};
+        HashMap<String, Charset> supportedEncode = new HashMap<>();
+        supportedEncode.put(".utf8", StandardCharsets.UTF_8);
+        supportedEncode.put(".txt", StandardCharsets.US_ASCII);
+        supportedEncode.put(".utf16be", StandardCharsets.UTF_16BE);
+        supportedEncode.put(".utf16le", StandardCharsets.UTF_16LE);
+
         String filename = file.getName();
         int indexOfPoint = filename.lastIndexOf(".");
-        for (int i = 0; i < supportedExtension.length && indexOfPoint != -1; i++) {
+        if (indexOfPoint != -1) {
             String extension = filename.substring(indexOfPoint);
-            if (extension.contains(supportedExtension[i])) {
-                return supportedEncoding[i];
-            }
+            if (supportedEncode.containsKey(extension))
+                return supportedEncode.get(extension);
         }
         return null;
     }
