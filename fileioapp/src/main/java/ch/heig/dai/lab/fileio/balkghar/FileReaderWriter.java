@@ -14,16 +14,21 @@ public class FileReaderWriter {
     public String readFile(File file, Charset encoding) {
         // Use the ...Stream and ...Reader classes from the java.io package.
         // Make sure to close the streams and readers at the end.
-        String stringToReturn = "";
+        StringBuilder strBuild = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file.getAbsolutePath()), encoding))) {
-            while(reader.ready()) {
-                stringToReturn += reader.readLine() + "\n";
+            String line;
+            while ((line = reader.readLine()) != null) {
+
+                strBuild.append(line + "\n");
+
             }
+
             reader.close();
+            
         }catch (Exception e) {
             return null;
         }
-        return stringToReturn;
+        return strBuild.toString();
     }
 
     /**
