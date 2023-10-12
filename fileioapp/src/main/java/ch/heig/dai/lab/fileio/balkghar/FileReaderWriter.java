@@ -19,12 +19,12 @@ public class FileReaderWriter {
             String line;
             while ((line = reader.readLine()) != null) {
 
-                strBuild.append(line + "\n");
+                strBuild.append(line).append("\n");
 
             }
 
             reader.close();
-            
+
         }catch (Exception e) {
             return null;
         }
