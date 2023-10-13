@@ -1,6 +1,7 @@
 package ch.heig.dai.lab.fileio.fabricechapuis;
 
 import java.io.*;
+import java.nio.Buffer;
 import java.nio.charset.Charset;
 
 public class FileReaderWriter {
@@ -44,9 +45,18 @@ public class FileReaderWriter {
      * @return true if the file was written successfully, false otherwise
      */
     public boolean writeFile(File file, String content, Charset encoding) {
-        // TODO: Implement the method body here. 
+        try {
+            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(
+                    new FileOutputStream(file.getName()), encoding.displayName()));
+            out.write(content);
+            out.close();
+        } catch (FileNotFoundException e){
+            return false;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         // Use the ...Stream and ...Reader classes from the java.io package.
         // Make sure to flush the data and close the streams and readers at the end.
-        return false;
+        return true;
     }
 }
