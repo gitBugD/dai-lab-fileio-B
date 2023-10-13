@@ -50,10 +50,8 @@ public class FileReaderWriter {
                     new FileOutputStream(file.getName()), encoding.displayName()));
             out.write(content);
             out.close();
-        } catch (FileNotFoundException e){
-            return false;
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            return false;
         }
         return true;
     }
