@@ -2,7 +2,6 @@ package ch.heig.dai.lab.fileio.fabricechapuis;
 
 import java.io.*;
 import java.nio.charset.Charset;
-import java.util.stream.Collectors;
 
 public class FileReaderWriter {
 
@@ -13,8 +12,6 @@ public class FileReaderWriter {
      * @return the content of the file as a String, or null if an error occurred.
      */
     public String readFile(File file, Charset encoding) {
-        // TODO: Implement the method body here.
-
         InputStream stream = new ByteArrayInputStream(file.getName().getBytes());
         InputStreamReader streamReader = new InputStreamReader(stream, encoding);
         BufferedReader buffReader = new BufferedReader(streamReader);
@@ -30,6 +27,8 @@ public class FileReaderWriter {
         } finally {
             try {
                 stream.close();
+                streamReader.close();
+                buffReader.close();
             } catch (IOException e) {
                 return null;
             }
