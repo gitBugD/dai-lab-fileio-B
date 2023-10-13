@@ -33,10 +33,6 @@ public class FileReaderWriter {
                 return null;
             }
         }
-
-        // Use the ...Stream and ...Reader classes from the java.io package.
-        // Make sure to close the streams and readers at the end.
-
         return sb.toString();
     }
 
