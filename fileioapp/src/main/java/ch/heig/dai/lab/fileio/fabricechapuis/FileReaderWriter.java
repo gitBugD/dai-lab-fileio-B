@@ -55,8 +55,6 @@ public class FileReaderWriter {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        // Use the ...Stream and ...Reader classes from the java.io package.
-        // Make sure to flush the data and close the streams and readers at the end.
         return true;
     }
 }
