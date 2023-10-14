@@ -64,7 +64,8 @@ public class Transformer {
         int curLine = 1;
 
         while(curWordNum < splitSource.length){
-            result.append(curLine + '.');
+            result.append(curLine);
+            result.append('.');
 
             String curWord = splitSource[curWordNum];
 
