@@ -1,12 +1,13 @@
 package ch.heig.dai.lab.fileio;
 
 import java.io.File;
-import java.nio.charset.Charset;
 
-import ch.heig.dai.lab.fileio.gitBugD.*;
+// *** TODO: Change this to import your own package ***
+import ch.heig.dai.lab.fileio.jehrensb.*;
 
 public class Main {
-    private static final String newName = "Diana Laurenti";
+    // *** TODO: Change this to your own name ***
+    private static final String newName = "Jean-Claude Van Damme";
 
     /**
      * Main method to transform files in a folder.
@@ -30,32 +31,12 @@ public class Main {
         String folder = args[0];
         int wordsPerLine = Integer.parseInt(args[1]);
         System.out.println("Application started, reading folder " + folder + "...");
-        FileExplorer fileExplorer = new FileExplorer(folder);
-        EncodingSelector encodingSelector = new EncodingSelector();
-        FileReaderWriter fileReaderWriter = new FileReaderWriter();
-        Transformer transformer = new Transformer(newName, wordsPerLine);
+        // TODO: implement the main method here
 
         while (true) {
             try {
-                // get a new file
-                File file = fileExplorer.getNewFile();
-                if(file != null & !file.getName().contains(".processed")){
-                    // determine its encoding
-                    Charset encoding = encodingSelector.getEncoding(file);
-                    // read the file
-                    String fileContent = fileReaderWriter.readFile(file, encoding);
-                    // transform the content
-                    transformer.replaceChuck(fileContent);
-                    transformer.capitalizeWords(fileContent);
-                    transformer.wrapAndNumberLines(fileContent);
-                    // write the result
-                    String outputFileName = file.getPath() + ".processed";
-                    File outputFile = new File(outputFileName);
-                    fileReaderWriter.writeFile(outputFile, fileContent, encoding);
-                }
-                else{
-                    break;
-                }
+                // TODO: loop over all files
+
             } catch (Exception e) {
                 System.out.println("Exception: " + e);
             }
